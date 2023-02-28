@@ -1,6 +1,8 @@
-public struct AIImageSwift {
-    public private(set) var text = "Hello, World!"
+//
+//  AIImageSwift.swift
+//  
+//
+//  Created by Maurice G on 2/28/23.
+//
 
-    public init() {
-    }
-}
+import OpenAIKit
