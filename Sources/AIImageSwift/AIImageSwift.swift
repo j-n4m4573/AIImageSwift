@@ -45,4 +45,21 @@ public final class SwiftAIImage {
             throw SwiftAIImageError.openAIError
         }
     }
+    
+    public func saveImage(image: UIImage, name: String)  {
+        let data = image.jpegData(compressionQuality: 1.0)
+        let fileName = "\(name).jpeg"
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
+        
+        let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let fileURL = url.appendingPathComponent(fileName)
+        let filePath = "\(documentsPath)/\(fileName)"
+    
+        do {
+            try data?.write(to: fileURL)
+            
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }
